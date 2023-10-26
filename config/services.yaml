@@ -1,0 +1,11 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Fenepedia\ContaoIsotopeProductMemberGroups\:
+        resource: ../src
+
+    Fenepedia\ContaoIsotopeProductMemberGroups\EventListener\Isotope\:
+        resource: ../src/EventListener/Isotope
+        public: true
