@@ -2,7 +2,7 @@ Contao Isotope Product Member Groups
 ====================================
 
 This Contao Isotope extension allows you to automatically add groups to logged in members when purchasing specific
-products, product variants or product type.
+products, product variants or product types.
 
 ## Usage
 
