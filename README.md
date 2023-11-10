@@ -9,3 +9,6 @@ products, product variants or product types.
 * __Type__: select the member groups to be added in the _Expert_ settings of the product type.
 * __Product__: allow the __Add member groups__ setting in the product type's _Product attributes_ configuration.
 * __Variant__: allow the __Add member groups__ setting in the product type's _Variant attributes_ configuration.
+
+## Sponsoring
+This extension was financed by [V-Health](https://vhealth.ch/) and programmed by [inspiredminds](https://www.inspiredminds.at/). Thank you very much!
