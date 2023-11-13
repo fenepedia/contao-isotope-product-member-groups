@@ -42,7 +42,7 @@
         "Digitrale Produkte"
     ],
     "support": {
-        "issues": "hhttps://github.com/fenepedia/contao-isotope-product-member-groups/issues",
+        "issues": "https://github.com/fenepedia/contao-isotope-product-member-groups/issues",
         "source": "https://github.com/fenepedia/contao-isotope-product-member-groups"
     },
     "config": {
