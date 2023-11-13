@@ -11,7 +11,7 @@ products, product variants or product types.
 * __Variant__: allow the __Add member groups__ setting in the product type's _Variant attributes_ configuration.
 
 ## Documentation
-https://www.fenepedia.de/tools/contao-isotope-erweiterung-produkte-mit-mitgliedergruppen-verkuenpfen
+https://www.fenepedia.de/contao-isotope-erweiterung-produkte-mit-mitgliedergruppen-verknuepfen
 
 ## Sponsoring
 This extension was financially supported by [V-Health](https://vhealth.ch/) and programmed by [inspiredminds](https://www.inspiredminds.at/). Thank you very much!
