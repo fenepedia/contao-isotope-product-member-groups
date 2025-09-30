@@ -53,6 +53,7 @@ class AddMemberGroupsListener
             $allGroups = [...$allGroups, ...self::processGroups($product->addMemberGroups)];
             $allGroups = [...$allGroups, ...self::processGroups($product->getType()->addMemberGroups)];
         }
+
         return array_unique($allGroups);
     }
 
