@@ -30,7 +30,7 @@ class AddMemberGroupsListener
             return;
         }
 
-        if (($memberId = $order->member) <= 0) {
+        if (!$order->member) {
             return;
         }
 
