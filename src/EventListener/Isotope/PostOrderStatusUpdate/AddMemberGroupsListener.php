@@ -34,7 +34,10 @@ class AddMemberGroupsListener
             return;
         }
 
-        $member = MemberModel::findByPk($memberId);
+        if (!$member = MemberModel::findByPk($order->member)) {
+            return;
+        }
+
         if (!($addGroups = $this->getMemberGroups($order))) {
             return;
         }
