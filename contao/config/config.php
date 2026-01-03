@@ -6,6 +6,6 @@ declare(strict_types=1);
  * This file is part of the ContaoIsotopeProductMemberGroups extension.
  */
 
-use Fenepedia\ContaoIsotopeProductMemberGroups\EventListener\Isotope\PostCheckout\AddMemberGroupsListener;
+use Fenepedia\ContaoIsotopeProductMemberGroups\EventListener\Isotope\PostOrderStatusUpdate\AddMemberGroupsListener;
 
-$GLOBALS['ISO_HOOKS']['postCheckout'][] = [AddMemberGroupsListener::class, '__invoke'];
+$GLOBALS['ISO_HOOKS']['postOrderStatusUpdate'][] = [AddMemberGroupsListener::class, '__invoke'];

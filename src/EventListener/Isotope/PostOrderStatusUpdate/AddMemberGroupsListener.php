@@ -6,12 +6,13 @@ declare(strict_types=1);
  * This file is part of the ContaoIsotopeProductMemberGroups extension.
  */
 
-namespace Fenepedia\ContaoIsotopeProductMemberGroups\EventListener\Isotope\PostCheckout;
+namespace Fenepedia\ContaoIsotopeProductMemberGroups\EventListener\Isotope\PostOrderStatusUpdate;
 
-use Contao\FrontendUser;
+use Contao\MemberModel;
 use Contao\StringUtil;
 use Doctrine\DBAL\Connection;
 use Isotope\Model\ProductCollection\Order;
+use Isotope\Model\OrderStatus;
 use Symfony\Component\Security\Core\Security;
 
 class AddMemberGroupsListener
@@ -22,9 +23,18 @@ class AddMemberGroupsListener
     ) {
     }
 
-    public function __invoke(Order $order, array $tokens): void
+    public function __invoke(Order $order, int $oldStatus, OrderStatus $newStatus): void
     {
-        if (!($user = $this->security->getUser()) instanceof FrontendUser) {
+
+        if (!$newStatus->isPaid()) {
+            return;
+        }
+
+        if (!$order->member) {
+            return;
+        }
+
+        if (!$member = MemberModel::findByPk($order->member)) {
             return;
         }
 
@@ -32,9 +42,9 @@ class AddMemberGroupsListener
             return;
         }
 
-        $mergedGroups = array_unique(array_merge(array_map('intval', $user->groups), $addGroups));
-        $user->groups = $mergedGroups;
-        $this->connection->update('tl_member', ['groups' => serialize($mergedGroups)], ['id' => $user->id]);
+        $mergedGroups = array_unique(array_merge(self::processGroups($member->groups), $addGroups));
+        $member->groups = $mergedGroups;
+        $this->connection->update('tl_member', ['groups' => serialize($mergedGroups)], ['id' => $member->id]);
     }
 
     private function getMemberGroups(Order $order): array
